@@ -26,6 +26,16 @@ app.use('/api/users', userRoutes)
 
 
 
+//test route
+
+app.get("/health",(req,res)=>{
+    res.json({
+        message:"server running",
+        healthStatus:200,
+        success:"OK"
+
+    })
+})
 
 //connection
 connectDB().then(()=>{
