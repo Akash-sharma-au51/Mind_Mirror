@@ -11,10 +11,15 @@ const port = process.env.PORT
 
 const app = express()
 
+const corsOption = {
+    origin:'*',
+    methods:['GET',"POST",'PUT','PATCH','DELETE']
+}
+
 // Middleware
 app.use(express.json())
 app.use(morgan('dev'))
-app.use(cors())
+app.use(cors(corsOption))
 
 // Routes
 app.use('/api/users', userRoutes)
