@@ -1,9 +1,9 @@
-import express from "express"
-import connectDB from "./config/db.connect.ts";
+import express, { Request, Response } from "express"
+import connectDB from "./config/db.connect.js";
 import dotenv from "dotenv"
 import morgan from "morgan"
 import cors from "cors"
-import userRoutes from "./routes/userRoutes.ts"
+import userRoutes from "./routes/userRoutes.js"
 
 dotenv.config()
 
@@ -28,7 +28,7 @@ app.use('/api/users', userRoutes)
 
 //test route
 
-app.get("/health",(req,res)=>{
+app.get("/health",(req: Request, res: Response)=>{
     res.json({
         message:"server running",
         healthStatus:200,
